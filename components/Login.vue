@@ -2,15 +2,24 @@
   <el-row class="login-container" type="flex" justify="center">
     <el-col :xs="24" :sm="20" :md="16" :lg="8" :xl="6" class="login-form">
       <h3>LOGIN</h3>
-      <el-form>
-        <el-form-item label="Account">
-          <el-input></el-input>
+      <el-form ref="form" :model="user">
+        <el-form-item label="User Name">
+          <el-input v-model="user.userName"></el-input>
         </el-form-item>
         <el-form-item label="Password">
-          <el-input></el-input>
+          <el-input v-model="user.password" show-password></el-input>
         </el-form-item>
         <el-form-item>
-          <el-checkbox label="Remember Me?" name="remember"></el-checkbox>
+          <el-checkbox
+            v-model="user.isRemember"
+            label="Remember Me?"
+            name="remember"
+          ></el-checkbox>
+        </el-form-item>
+        <el-form-item class="text-center">
+          <button class="c-button wide" @click="login">
+            Login
+          </button>
         </el-form-item>
       </el-form>
     </el-col>
@@ -19,7 +28,24 @@
 
 <script>
 export default {
-  components: {}
+  components: {},
+  data() {
+    return {
+      user: {
+        userName: '',
+        password: '',
+        isRemember: false
+      }
+    }
+  },
+  methods: {
+    async login() {
+      try {
+        await this.$store.dispatch('login', this.user)
+      } catch (e) {
+      }
+    }
+  }
 }
 </script>
 
@@ -28,7 +54,6 @@ export default {
   width: 100%
 .login-form
   background: rgba(0, 0, 0, 0.45)
-  height: 500px
   color: white
   padding: 1.25rem
   h3
