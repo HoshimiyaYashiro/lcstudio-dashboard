@@ -1,3 +1,5 @@
+const bodyParser = require('body-parser')
+
 module.exports = {
   mode: 'spa',
   /*
@@ -58,5 +60,12 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
+  },
+  serverMiddleware: [
+    // body-parser middleware
+    bodyParser.json(),
+    // Api middleware
+    // We add /api/login & /api/logout routes
+    '~/api'
+  ]
 }

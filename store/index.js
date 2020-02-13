@@ -5,21 +5,22 @@ export const state = () => ({
 })
 
 export const mutations = {
-  SET_USER (state, user) {
+  SET_USER(state, user) {
     state.authUser = user
   }
 }
 
 export const actions = {
   // nuxtServerInit is called by Nuxt.js before server-rendering every page
-  nuxtServerInit ({ commit }, { req }) {
+  nuxtServerInit({ commit }, { req }) {
     if (req.session && req.session.authUser) {
       commit('SET_USER', req.session.authUser)
     }
   },
-  async login ({ commit }, { userName, password }) {
+  async login({ commit }, user) {
     try {
-      const { data } = await axios.post('/api/login', { userName, password })
+      const { data } = await axios.post('/api/login', user)
+      console.log(data)
       commit('SET_USER', data)
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -29,9 +30,8 @@ export const actions = {
     }
   },
 
-  async logout ({ commit }) {
+  async logout({ commit }) {
     await axios.post('/api/logout')
     commit('SET_USER', null)
   }
-
 }

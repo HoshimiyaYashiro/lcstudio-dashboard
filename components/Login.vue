@@ -2,7 +2,7 @@
   <el-row class="login-container" type="flex" justify="center">
     <el-col :xs="24" :sm="20" :md="16" :lg="8" :xl="6" class="login-form">
       <h3>LOGIN</h3>
-      <el-form ref="form" :model="user">
+      <el-form ref="form" :model="user" @submit.prevent.native="login">
         <el-form-item label="User Name">
           <el-input v-model="user.userName"></el-input>
         </el-form-item>
@@ -17,7 +17,7 @@
           ></el-checkbox>
         </el-form-item>
         <el-form-item class="text-center">
-          <button class="c-button wide" @click="login">
+          <button type="submit" class="c-button wide">
             Login
           </button>
         </el-form-item>
@@ -42,7 +42,9 @@ export default {
     async login() {
       try {
         await this.$store.dispatch('login', this.user)
+        this.$router.push('/home')
       } catch (e) {
+        console.log(e)
       }
     }
   }
