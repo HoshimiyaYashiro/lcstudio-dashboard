@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div class="flex-container">
     <login></login>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style lang="sass">
-.page-container
+.flex-container
   min-height: 100vh
   margin: 0 auto
   display: flex

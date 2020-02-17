@@ -1,6 +1,7 @@
 <template>
-  <el-container>
-    <button class="c-button wide" @click="logout">Log Out</button>
+  <el-container class="page-container">
+    <el-menu default-active="1" class="page-menu"></el-menu>
+    <el-main></el-main>
   </el-container>
 </template>
 
@@ -12,12 +13,16 @@ export default {
       try {
         await this.$store.dispatch('logout')
         this.$router.push('/')
-      } catch (e) {
-        console.log(e)
-      }
+      } catch (e) {}
     }
   }
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.page-container
+  min-height: 100vh
+  background-image: url('../assets/img/bg.jpg')
+.page-menu
+  width: 250px
+</style>
