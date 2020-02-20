@@ -130,4 +130,81 @@ html {
 .el-checkbox__input.is-focus .el-checkbox__inner {
   border-color: #fff;
 }
+
+.el-menu-item {
+  color: #fff;
+}
+
+.el-menu-item i {
+  color: #fff;
+}
+
+.el-menu-item:focus,
+.el-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.el-menu-item:focus::before,
+.el-menu-item:hover::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+.el-menu-item.is-active {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.el-menu-item.is-active::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  top: 0;
+  left: 0;
+  background: #1fa2ff;
+}
+
+.el-menu-item [class^='el-icon-'] {
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.el-menu-togger {
+  font-size: 14px;
+  color: #303133;
+  padding: 0 20px;
+  transition: 'border-color .3s', 'background-color .3s', 'color .3s';
+  box-sizing: border-box;
+  height: 56px;
+  line-height: 56px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  white-space: nowrap;
+  list-style: none;
+  background: #fff;
+}
+
+.el-menu-togger svg {
+  display: inline;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.el-menu--collapse > .el-menu-item span {
+  visibility: visible;
+  height: inherit;
+  width: inherit;
+}
+
+.el-menu--collapse > .el-menu-item [class^='el-icon-'] {
+  margin-right: 20px;
+}
 </style>
