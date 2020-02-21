@@ -14,7 +14,7 @@ export default {
   methods: {
     checkAuth() {
       if (this.$store.state.authUser) {
-        this.$route.push('/home')
+        this.$router.push('/home')
       }
     }
   }
