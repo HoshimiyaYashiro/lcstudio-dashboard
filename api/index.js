@@ -17,7 +17,7 @@ router.use((req, res, next) => {
 // Add POST - /api/login
 router.post('/login', (req, res) => {
   if (req.body.userName === 'demo' && req.body.password === 'demo') {
-    // req.session.authUser = { userName: 'demo' }
+    req.session.authUser = { userName: 'demo' }
     return res.json({ userName: 'demo' })
   }
   res.status(401).json({ message: 'Bad credentials' })
@@ -25,7 +25,7 @@ router.post('/login', (req, res) => {
 
 // Add POST - /api/logout
 router.post('/logout', (req, res) => {
-  // delete req.session.authUser
+  delete req.session.authUser
   res.json({ ok: true })
 })
 

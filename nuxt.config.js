@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser')
+const session = require('express-session')
 
 module.exports = {
   mode: 'spa',
@@ -66,11 +67,22 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
+    }
   },
   serverMiddleware: [
     // body-parser middleware
     bodyParser.json(),
+    // session middleware
+    session({
+      secret: 'auth-user',
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 60000 }
+    }),
     // Api middleware
     // We add /api/login & /api/logout routes
     '~/api'

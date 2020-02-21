@@ -7,7 +7,17 @@
 <script>
 import Login from '../components/Login'
 export default {
-  components: { Login }
+  components: { Login },
+  mounted() {
+    this.checkAuth()
+  },
+  methods: {
+    checkAuth() {
+      if (this.$store.state.authUser) {
+        this.$route.push('/home')
+      }
+    }
+  }
 }
 </script>
 

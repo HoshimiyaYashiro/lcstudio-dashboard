@@ -14,18 +14,22 @@
         ></arrow-left-icon>
         <span>Zafkiel</span>
       </li>
-      <nuxt-link to="/dashboard" no-prefetch>
+      <router-link to="/home/dashboard">
         <el-menu-item index="1">
           <i class="el-icon-odometer"></i>
           <span>Dashboard</span>
         </el-menu-item>
-      </nuxt-link>
-      <el-menu-item index="2">
-        <i class="el-icon-document"></i>
-        <span>Report</span>
-      </el-menu-item>
+      </router-link>
+      <router-link to="/home/report">
+        <el-menu-item index="2">
+          <i class="el-icon-document"></i>
+          <span>Report</span>
+        </el-menu-item>
+      </router-link>
+      <button @click="logout">Log Out</button>
     </el-menu>
     <el-main>
+      <router-view />
     </el-main>
   </el-container>
 </template>
@@ -34,6 +38,7 @@
 import { MenuIcon, ArrowLeftIcon } from 'vue-feather-icons'
 
 export default {
+  middleware: 'auth',
   components: { MenuIcon, ArrowLeftIcon },
   data() {
     return {
