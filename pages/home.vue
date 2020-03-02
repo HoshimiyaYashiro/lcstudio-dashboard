@@ -1,7 +1,7 @@
 <template>
   <el-container class="page-container">
     <el-menu default-active="1" class="page-menu" :collapse="isCollapse">
-      <li class="el-menu-togger">
+      <li class="el-menu-toggle">
         <menu-icon
           v-show="isCollapse"
           size="1.7x"
@@ -26,9 +26,17 @@
           <span>Report</span>
         </el-menu-item>
       </router-link>
-      <button @click="logout">Log Out</button>
+      <li class="el-menu-toggle el-menu-logout" @click="logout">
+        <i class="el-icon-switch-button"></i>
+        <span>Log Out</span>
+      </li>
     </el-menu>
     <el-main>
+      <div
+        v-show="!isCollapse"
+        class="page-mask"
+        @click="isCollapse = true"
+      ></div>
       <router-view />
     </el-main>
   </el-container>
@@ -44,6 +52,9 @@ export default {
     return {
       isCollapse: true
     }
+  },
+  mounted() {
+    this.$router.push('/home/dashboard')
   },
   methods: {
     async logout() {
@@ -65,6 +76,26 @@ export default {
   background: rgba(0, 0, 0, .2)
   border-color: transparent
   overflow-x: hidden
-.page-menu:not(.el-menu--collapse)
-  width: 250px
+  &:not(.el-menu--collapse)
+    width: 250px
+.page-mask
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  background: rgba(255, 255, 255, .2)
+.el-main
+  position: relative
+.el-menu-logout
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  cursor: pointer
+  background: transparent
+  color: #c9c9c9
+  &:hover
+    color: #fff
+    background: rgba(0, 0, 0, .2)
 </style>

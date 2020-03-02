@@ -132,11 +132,11 @@ html {
 }
 
 .el-menu-item {
-  color: #fff;
+  color: #c9c9c9;
 }
 
 .el-menu-item i {
-  color: #fff;
+  color: #c9c9c9;
 }
 
 .el-menu-item:focus,
@@ -177,7 +177,7 @@ html {
   margin-right: 20px;
 }
 
-.el-menu-togger {
+.el-menu-toggle {
   font-size: 14px;
   color: #303133;
   padding: 0 20px;
@@ -192,7 +192,7 @@ html {
   background: #fff;
 }
 
-.el-menu-togger svg {
+.el-menu-toggle svg {
   display: inline;
   margin-right: 20px;
   cursor: pointer;
@@ -205,6 +205,14 @@ html {
 }
 
 .el-menu--collapse > .el-menu-item [class^='el-icon-'] {
+  margin-right: 20px;
+}
+
+.el-menu-toggle [class^='el-icon-'] {
+  width: 24px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 24px;
   margin-right: 20px;
 }
 </style>
