@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const hour = 3600000
 
 module.exports = {
   // mode: 'spa',
@@ -81,7 +82,7 @@ module.exports = {
       secret: 'auth-user',
       resave: false,
       saveUninitialized: false,
-      cookie: { maxAge: 6000000 }
+      cookie: { maxAge: hour }
     }),
     // Api middleware
     // We add /api/login & /api/logout routes

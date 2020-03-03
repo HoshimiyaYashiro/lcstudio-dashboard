@@ -137,6 +137,8 @@ html {
 
 .el-menu-item i {
   color: #c9c9c9;
+  height: 60px;
+  line-height: 60px;
 }
 
 .el-menu-item:focus,
@@ -183,8 +185,8 @@ html {
   padding: 0 20px;
   transition: 'border-color .3s', 'background-color .3s', 'color .3s';
   box-sizing: border-box;
-  height: 56px;
-  line-height: 56px;
+  height: 60px;
+  line-height: 60px;
   position: relative;
   -webkit-box-sizing: border-box;
   white-space: nowrap;
@@ -214,5 +216,13 @@ html {
   vertical-align: middle;
   font-size: 24px;
   margin-right: 20px;
+}
+
+.el-main {
+  padding: 0;
+}
+
+.page-main {
+  height: 100%;
 }
 </style>

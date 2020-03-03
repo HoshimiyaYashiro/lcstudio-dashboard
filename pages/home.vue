@@ -95,6 +95,7 @@ export default {
   cursor: pointer
   background: transparent
   color: #c9c9c9
+  border-top: solid 1px #fff
   &:hover
     color: #fff
     background: rgba(0, 0, 0, .2)
