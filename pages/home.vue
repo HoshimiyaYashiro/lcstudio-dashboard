@@ -44,9 +44,10 @@
 
 <script>
 import { MenuIcon, ArrowLeftIcon } from 'vue-feather-icons'
+require('vue2-animate/dist/vue2-animate.min.css')
 
 export default {
-  middleware: 'auth',
+  middleware: 'authLocal',
   components: { MenuIcon, ArrowLeftIcon },
   data() {
     return {
@@ -68,6 +69,7 @@ export default {
 </script>
 
 <style lang="sass">
+@import './assets/sass/style'
 .page-container
   min-height: 100vh
   background-image: linear-gradient(to top, #09203f 0%, #537895 100%)

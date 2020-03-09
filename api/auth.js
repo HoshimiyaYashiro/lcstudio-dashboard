@@ -14,7 +14,7 @@ router.use((req, res, next) => {
   next()
 })
 
-// Add POST - /api/login
+// Add POST - /api/auth/login
 router.post('/login', (req, res) => {
   if (req.body.userName === 'demo' && req.body.password === 'demo') {
     req.session.authUser = { userName: 'demo' }
@@ -23,14 +23,19 @@ router.post('/login', (req, res) => {
   res.status(401).json({ message: 'Bad credentials' })
 })
 
-// Add POST - /api/logout
+// Add POST - /api/auth/logout
 router.post('/logout', (req, res) => {
   delete req.session.authUser
   res.json({ ok: true })
 })
 
+// Add GET - /api/auth/user
+router.get('/user', (req, res) => {
+  res.json({ user: req.user })
+})
+
 // Export the server middleware
 export default {
-  path: '/api',
+  path: '/api/auth',
   handler: router
 }

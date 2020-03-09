@@ -53,13 +53,31 @@ module.exports = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    // proxy: true
+  },
+  // proxy: {
+  //   '/api': 'http://localhost:3000'
+  // },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post' },
+          logout: { url: '/api/auth/logout', method: 'post' }
+        },
+        tokenRequired: false,
+        tokenType: false
+      }
+    }
+  },
   /*
    ** Build configuration
    */
@@ -85,7 +103,10 @@ module.exports = {
       cookie: { maxAge: hour }
     }),
     // Api middleware
-    // We add /api/login & /api/logout routes
-    '~/api'
-  ]
+    '~/api/auth'
+  ],
+  server: {
+    host: '0.0.0.0',
+    port: '4000'
+  }
 }

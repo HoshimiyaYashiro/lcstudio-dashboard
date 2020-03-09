@@ -132,11 +132,11 @@ html {
 }
 
 .el-menu-item {
-  color: #c9c9c9;
+  color: rgba(201, 201, 201, 0.8);
 }
 
 .el-menu-item i {
-  color: #c9c9c9;
+  color: rgba(201, 201, 201, 0.8);
   height: 60px;
   line-height: 60px;
 }

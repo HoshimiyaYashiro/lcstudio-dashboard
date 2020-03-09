@@ -2,7 +2,7 @@
   <el-row class="login-container" type="flex" justify="center">
     <el-col :xs="24" :sm="20" :md="16" :lg="8" :xl="6" class="login-form">
       <h3>LOGIN</h3>
-      <el-form ref="form" :model="user" @submit.prevent.native="login">
+      <el-form ref="form" :model="user" @submit.prevent.native="authLogin">
         <el-form-item label="User Name">
           <el-input v-model="user.userName"></el-input>
         </el-form-item>
@@ -46,6 +46,18 @@ export default {
       } catch (e) {
         console.log(e)
       }
+    },
+    async authLogin() {
+      const self = this
+      try {
+        const res = await this.$auth.loginWith('local', { data: self.user })
+        console.log(res)
+      } catch (err) {
+        console.log(err)
+      }
+      // if (this.$auth.loggedIn) {
+      //   this.$router.push('/home')
+      // }
     }
   }
 }

@@ -5,7 +5,13 @@ const app = express()
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
+
 config.dev = process.env.NODE_ENV !== 'production'
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 async function start() {
   // Init Nuxt.js
@@ -26,7 +32,7 @@ async function start() {
   // Listen the server
   app.listen(port, host)
   consola.ready({
-    message: `Server listening on http://${host}:${port}`,
+    message: `Server listening on http://localhost:${port}`,
     badge: true
   })
 }
