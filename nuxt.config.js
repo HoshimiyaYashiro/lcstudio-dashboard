@@ -78,6 +78,9 @@ module.exports = {
       }
     }
   },
+  // router: {
+  //   middleware: ['auth']
+  // },
   /*
    ** Build configuration
    */

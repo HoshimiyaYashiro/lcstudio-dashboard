@@ -50,14 +50,13 @@ export default {
     async authLogin() {
       const self = this
       try {
-        const res = await this.$auth.loginWith('local', { data: self.user })
-        console.log(res)
+        await this.$auth.loginWith('local', { data: self.user })
       } catch (err) {
         console.log(err)
       }
-      // if (this.$auth.loggedIn) {
-      //   this.$router.push('/home')
-      // }
+      if (self.$auth.loggedIn) {
+        self.$router.push('/home')
+      }
     }
   }
 }

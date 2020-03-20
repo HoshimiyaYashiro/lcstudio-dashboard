@@ -47,7 +47,7 @@ import { MenuIcon, ArrowLeftIcon } from 'vue-feather-icons'
 require('vue2-animate/dist/vue2-animate.min.css')
 
 export default {
-  middleware: 'authLocal',
+  middleware: 'auth',
   components: { MenuIcon, ArrowLeftIcon },
   data() {
     return {

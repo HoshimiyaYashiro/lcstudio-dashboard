@@ -8,8 +8,8 @@
           </el-input>
         </el-col>
         <el-col :span="12"></el-col>
-        <el-col :span="6" type="flex" align="right">
-          <div class="user-management">
+        <el-col :span="6">
+          <div class="user-management flex items-center justify-end">
             <el-avatar shape="square" :size="40" :src="userAvatar"></el-avatar>
             <el-dropdown>
               <span class="el-dropdown-link">
